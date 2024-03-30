@@ -36,10 +36,8 @@ export default function Login() {
     try {
       const response = await axios.post(`${apiUrl}login`, data);
       const userData = response.data.data;
-      window.localStorage.setItem("USER_ID", JSON.stringify(userData.id));
-      window.localStorage.setItem("USER_TOKEN", JSON.stringify(userData.token));
-      window.localStorage.setItem("LOGIN_STATUS", true);
       if (response.status === 200) {
+        window.localStorage.setItem("LOGIN_DATA", JSON.stringify(userData));
         navigate("/");
       }
     } catch (error) {
