@@ -26,28 +26,26 @@ export default function Login() {
   };
 
   //Handle Login API Integration here
-  const authenticateUser = () => {
+  const authenticateUser = async () => {
     const apiUrl = process.env.REACT_APP_BASE_URL;
     const data = {
       username: loginState.username.toLowerCase(),
       password: loginState.password,
     };
 
-    axios
-      .post(`${apiUrl}login`, data)
-      .then((res) => {
-        const response = res.data.data;
-        window.localStorage.setItem('USER_ID', JSON.stringify(response.id))
-        window.localStorage.setItem('USER_TOKEN', JSON.stringify(response.token))
-        window.localStorage.setItem('LOGIN_STATUS', true)
-        if (res.status === 200) {
-          navigate("/");
-        }
-      })
-      .catch((error) => {
-        const errorMessage = error.response.data.errors;
-        console.log(errorMessage);
-      });
+    try {
+      const response = await axios.post(`${apiUrl}login`, data);
+      const userData = response.data.data;
+      window.localStorage.setItem("USER_ID", JSON.stringify(userData.id));
+      window.localStorage.setItem("USER_TOKEN", JSON.stringify(userData.token));
+      window.localStorage.setItem("LOGIN_STATUS", true);
+      if (response.status === 200) {
+        navigate("/");
+      }
+    } catch (error) {
+      const errorMessage = error.response.data.errors;
+      console.log(errorMessage);
+    }
   };
 
   return (

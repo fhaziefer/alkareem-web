@@ -30,7 +30,7 @@ const Navbar = () => {
         <li className="p-4">Profile</li>
         <li className="p-4">About</li>
         <li
-          className="p-4 font-bold text-red-500"
+          className="p-4 font-bold text-red-500 hover:text-red-700"
           onClick={() => handleLogin()}
         >
           Logout
@@ -57,7 +57,7 @@ const Navbar = () => {
         <ul className="w-full upercase p-4 absolute bottom-0">
           <li className="p-4 border-t border-gray-600">Profile</li>
           <li
-            className="p-4 border-t border-t-gray-600 font-bold text-red-500"
+            className="p-4 border-t border-t-gray-600 font-bold text-red-500 hover:text-red-700"
             onClick={() => handleLogin()}
           >
             Logout
