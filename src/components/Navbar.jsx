@@ -23,7 +23,7 @@ const Navbar = () => {
       <div
         className={
           !nav
-            ? "fixed left-[-100%]" 
+            ? "fixed left-[-100%]"
             : "fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500"
         }
       >
@@ -33,8 +33,13 @@ const Navbar = () => {
         <ul className="upercase p-4">
           <li className="p-4 border-b border-gray-600">Home</li>
           <li className="p-4 border-b border-gray-600">Explore</li>
-          <li className="p-4 border-b border-gray-600">Profile</li>
-          <li className="p-4">About</li>
+          <li className="p-4">Search</li>
+        </ul>
+        <ul className="w-full upercase p-4 absolute bottom-0">
+          <li className="p-4 border-t border-gray-600">Profile</li>
+          <li className="p-4 border-t border-t-gray-600 font-bold text-red-500">
+            Logout
+          </li>
         </ul>
       </div>
     </div>
