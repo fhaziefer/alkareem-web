@@ -1,8 +1,21 @@
 import React, { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
+  const [isLogin, setLogin] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    setLogin(!isLogin)
+    if (!isLogin) {
+      window.onbeforeunload = function () {
+        localStorage.clear();
+      };
+    }
+    navigate("/login");
+  };
 
   const handleNav = () => {
     setNav(!nav);
@@ -16,6 +29,12 @@ const Navbar = () => {
         <li className="p-4">Explore</li>
         <li className="p-4">Profile</li>
         <li className="p-4">About</li>
+        <li
+          className="p-4 font-bold text-red-500"
+          onClick={() => handleLogin()}
+        >
+          Logout
+        </li>
       </ul>
       <div onClick={handleNav} className="block md:hidden">
         {!nav ? <AiOutlineMenu size={20} /> : <AiOutlineClose size={20} />}
@@ -37,7 +56,10 @@ const Navbar = () => {
         </ul>
         <ul className="w-full upercase p-4 absolute bottom-0">
           <li className="p-4 border-t border-gray-600">Profile</li>
-          <li className="p-4 border-t border-t-gray-600 font-bold text-red-500">
+          <li
+            className="p-4 border-t border-t-gray-600 font-bold text-red-500"
+            onClick={() => handleLogin()}
+          >
             Logout
           </li>
         </ul>
