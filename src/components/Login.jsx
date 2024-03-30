@@ -38,12 +38,28 @@ export default function Login() {
       const userData = response.data.data;
       if (response.status === 200) {
         window.localStorage.setItem("LOGIN_DATA", JSON.stringify(userData));
+      }
+    } catch (error) {
+      const errorMessage = error.response.data.errors;
+      console.log(errorMessage);
+    }
+
+    try {
+      const userData = JSON.parse(window.localStorage.getItem('LOGIN_DATA'))
+      const response = await axios.get(`${apiUrl}user/${userData.id}`, {
+        headers: {
+          Authorization: userData.token
+        }
+      })
+      if (response.status === 200) {
+        window.localStorage.setItem("USER_DATA", JSON.stringify(response.data.data));
         navigate("/");
       }
     } catch (error) {
       const errorMessage = error.response.data.errors;
       console.log(errorMessage);
     }
+
   };
 
   return (

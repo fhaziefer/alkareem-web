@@ -2,9 +2,8 @@ import React from 'react'
 import { Navigate } from 'react-router-dom'
 
 const ProtectiveRoute = ({children}) => {
-  const loginData = window.localStorage.getItem('LOGIN_DATA');
-    const isLogin = JSON.parse(loginData);
-    if (!isLogin) {
+  const userData = JSON.parse(window.localStorage.getItem('LOGIN_DATA'))
+    if (!userData) {
         return <Navigate to='/login'/>
     }
   return children;
