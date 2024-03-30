@@ -24,25 +24,22 @@ export default function Signup(){
   }
 
   //handle Signup API Integration here
-  const createAccount=()=>{
+  const createAccount= async () => { 
     const apiUrl = process.env.REACT_APP_BASE_URL;
     const data = {
       username: signupState.username.toLowerCase(),
       password: signupState.password
     }
 
-    axios
-      .post(`${apiUrl}register`, data)
-      .then((res) => {
-        console.log(data.username);
-        if (res.status === 200) {
-          navigate("/login");
-        }
-      })
-      .catch((error) => {
-        const errorMessage = error.response.data.errors;
-        console.log(errorMessage);
-      });
+    try {
+      const response = await axios.post(`${apiUrl}register`, data);
+      if (response.status === 200) {
+        navigate("/login");
+      }
+    } catch (error) {
+      const errorMessage = error.response.data.errors;
+      console.log(errorMessage);
+    }
 
   }
 
