@@ -6,9 +6,6 @@ import LoginPage from './pages/Login.jsx';
 import SignupPage from './pages/Signup.jsx';
 
 function App() {
-  window.onbeforeunload = function () {
-    localStorage.clear();
-  };
   return (
     <Router>
       <Routes>
