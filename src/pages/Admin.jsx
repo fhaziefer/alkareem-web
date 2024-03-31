@@ -1,13 +1,13 @@
 import React from 'react'
 import Navbar from "../components/Navbar.jsx";
 import UserTable from '../components/UserTable.jsx';
+import UserTableAdmin from '../components/UserTableAdmin.jsx';
 
 function AdminPage() {
   return (
     <div>
         <Navbar />
-        <h1 className='text-white'>THIS IS ADMIN PAGE</h1>
-        <UserTable/>
+        <UserTableAdmin/>
     </div>
   )
 }

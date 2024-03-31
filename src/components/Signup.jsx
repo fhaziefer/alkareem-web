@@ -32,7 +32,7 @@ export default function Signup(){
     }
 
     try {
-      const response = await axios.post(`${apiUrl}register`, data);
+      const response = await axios.post(`${apiUrl}/register`, data);
       if (response.status === 200) {
         navigate("/login");
       }

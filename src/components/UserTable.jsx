@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 
 const UserTable = () => {
   const [data, setData] = useState([]);
-  console.log(data);
 
   useEffect(() => {
     async function fetchData() {
@@ -12,7 +11,7 @@ const UserTable = () => {
         const search = "%";
         const userData = JSON.parse(window.localStorage.getItem("LOGIN_DATA"));
         const response = await axios.get(
-          `${apiUrl}user/search?keyword=${search}`,
+          `${apiUrl}/user/search?keyword=${search}`,
           {
             headers: {
               Authorization: userData.token,

@@ -34,7 +34,7 @@ export default function Login() {
     };
 
     try {
-      const response = await axios.post(`${apiUrl}login`, data);
+      const response = await axios.post(`${apiUrl}/login`, data);
       const userData = response.data.data;
       if (response.status === 200) {
         window.localStorage.setItem("LOGIN_DATA", JSON.stringify(userData));
@@ -46,7 +46,7 @@ export default function Login() {
 
     try {
       const userData = JSON.parse(window.localStorage.getItem('LOGIN_DATA'))
-      const response = await axios.get(`${apiUrl}user/${userData.id}`, {
+      const response = await axios.get(`${apiUrl}/user/${userData.id}`, {
         headers: {
           Authorization: userData.token
         }
