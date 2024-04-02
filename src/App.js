@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React from "react";
 import ProtectiveRoute from "./utils/ProtectiveRoute.jsx";
-import AdminRoute from "./utils/Admin.Router.jsx";
+import AdminRoute from "./utils/AdminRouter.jsx";
 
 import HomePage from "./pages/Home.jsx";
 import LoginPage from "./pages/Login.jsx";

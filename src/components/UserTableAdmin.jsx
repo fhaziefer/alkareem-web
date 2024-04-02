@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { searchUser } from "../api/UserApi";
 
 const UserTableAdmin = () => {
   const apiUrl = process.env.REACT_APP_BASE_URL;
